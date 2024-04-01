@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import UserRegistration from './A_regUser';
-import AddSubject from './A_addSubj';
 import ViewUsers from './A_viewUser';
 import AddSchedule from './A_addSched';
 import ViewSched from './A_viewSched';
@@ -14,9 +13,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 
 function AdminDashboard() {
-  const [showAnalytics, setShowAnalytics] = useState(false);
+  const [showAnalytics, setShowAnalytics] = useState(true);
   const [showUserRegistration, setShowUserRegistration] = useState(false);
-  const [showAddSubject, setShowAddSubject] = useState(false);
   const [showViewUsers, setShowViewUsers] = useState(false);
   const [showAddSchedule, setShowAddSchedule] = useState(false);
   const [showViewSched, setShowViewSched] = useState(false);
@@ -27,7 +25,6 @@ function AdminDashboard() {
   const toggleAnalytics = () => {
     setShowAnalytics(true);
     setShowUserRegistration(false);
-    setShowAddSubject(false);
     setShowViewUsers(false);
     setShowAddSchedule(false);
     setShowViewSched(false);
@@ -39,7 +36,6 @@ function AdminDashboard() {
   const toggleUserRegistration = () => {
     setShowAnalytics(false);
     setShowUserRegistration(true);
-    setShowAddSubject(false);
     setShowViewUsers(false);
     setShowAddSchedule(false);
     setShowViewSched(false);
@@ -51,7 +47,6 @@ function AdminDashboard() {
   const toggleAddSubject = () => {
     setShowAnalytics(false);
     setShowUserRegistration(false);
-    setShowAddSubject(true);
     setShowViewUsers(false);
     setShowAddSchedule(false);
     setShowViewSched(false);
@@ -63,7 +58,6 @@ function AdminDashboard() {
   const toggleViewUsers = () => {
     setShowAnalytics(false);
     setShowUserRegistration(false);
-    setShowAddSubject(false);
     setShowViewUsers(true);
     setShowAddSchedule(false);
     setShowViewSched(false);
@@ -75,7 +69,6 @@ function AdminDashboard() {
   const toggleAddSchedule = () => {
     setShowAnalytics(false);
     setShowUserRegistration(false);
-    setShowAddSubject(false);
     setShowViewUsers(false);
     setShowAddSchedule(true);
     setShowViewSched(false);
@@ -87,7 +80,6 @@ function AdminDashboard() {
   const toggleViewSched = () => {
     setShowAnalytics(false);
     setShowUserRegistration(false);
-    setShowAddSubject(false);
     setShowViewUsers(false);
     setShowAddSchedule(false);
     setShowViewSched(true);
@@ -99,7 +91,6 @@ function AdminDashboard() {
   const toggleViewRoom = () => {
     setShowAnalytics(false);
     setShowUserRegistration(false);
-    setShowAddSubject(false);
     setShowViewUsers(false);
     setShowAddSchedule(false);
     setShowViewSched(false);
@@ -111,7 +102,6 @@ function AdminDashboard() {
   const toggleFacultyScanHistory = () => {
     setShowAnalytics(false);
     setShowUserRegistration(false);
-    setShowAddSubject(false);
     setShowViewUsers(false);
     setShowAddSchedule(false);
     setShowViewSched(false);
@@ -123,7 +113,6 @@ function AdminDashboard() {
   const toggleLogout = () => {
     setShowAnalytics(false);
     setShowUserRegistration(false);
-    setShowAddSubject(false);
     setShowViewUsers(false);
     setShowAddSchedule(false);
     setShowViewSched(false);
@@ -156,15 +145,6 @@ function AdminDashboard() {
                   className="nav-link"
                 >
                   Add User
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  onClick={toggleAddSubject}
-                  className="nav-link"
-                >
-                  Add Subject
                 </a>
               </li>
               <li>
@@ -226,7 +206,6 @@ function AdminDashboard() {
         <div className="content">
         {showAnalytics && <Analytics />}
         {showUserRegistration && <UserRegistration />}
-      {showAddSubject && <AddSubject />}
       {showViewUsers && <ViewUsers />}
       {showAddSchedule && <AddSchedule />}
       {showViewSched && <ViewSched />}

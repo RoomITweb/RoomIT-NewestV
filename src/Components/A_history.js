@@ -17,6 +17,20 @@ function FacultyScanHistory() {
   const schoolYear = '2023-2024';
   const database = getDatabase(app);
 
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { 
+        month: 'numeric', 
+        day: 'numeric', 
+        year: 'numeric', 
+        hour: 'numeric', 
+        minute: 'numeric', 
+        second: 'numeric', 
+        hour12: true
+    };
+    const formattedDate = date.toLocaleString('en-US', options);
+    return formattedDate;
+}
   useEffect(() => {
     const fetchHistoryData = async () => {
       try {
@@ -26,7 +40,9 @@ function FacultyScanHistory() {
         if (historySnapshot.exists()) {
           const historyData = historySnapshot.val();
           const historyArray = Object.keys(historyData).map(key => historyData[key]);
-
+          historyArray.forEach(entry => {
+           entry.attendTime = formatDate(entry.attendTime).toString();
+          });
           // Sort by attendTime in descending order (latest first)
           historyArray.sort((a, b) => new Date(b.attendTime) - new Date(a.attendTime));
 
