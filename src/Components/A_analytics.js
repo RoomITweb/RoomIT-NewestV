@@ -888,27 +888,18 @@ function Analytics() {
       <div style={{ margin: '5 auto', marginTop: '50px', display: 'flex', flexDirection: 'col', justifyContent: 'center', }}>
         <div style={{ flexBasis: '30%', margin: '10px', borderRadius: '8px', padding: '20px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
           <h3 style={{ fontFamily: 'Bold' }}>Building Statistics and Usage</h3>
-          <canvas id="buildingChart" width="200" height="100" ></canvas>
-          <p style={{ marginTop: '40px' }}>
-            {mostUsedBuilding && (
-              `Most Used Building: ${mostUsedBuilding} was most used on ${selectedFromDate} to ${selectedToDate} with ${buildingStatisticsData[mostUsedBuilding]} entries`
-            )}
-          </p>
-          <p>
-            {leastUsedBuilding && (
-              `Least Used Building: ${leastUsedBuilding} was least used on ${selectedFromDate} to ${selectedToDate} with ${buildingStatisticsData[leastUsedBuilding]} entries`
-            )}
-          </p>
+          <canvas id="buildingChart" width="200" height="100" ></canvas>     
         </div>
 
         <div style={{ flexBasis: '30%', borderRadius: '8px', padding: '2px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
-          <h3 style={{ fontFamily: 'Bold' }}>Room Rankings</h3>
-          <canvas id="roomBarChart" width="500" height="300"></canvas>
-          
-        </div>
+    <h3 style={{ fontFamily: 'Bold' }}>Room Rankings</h3>
+    <canvas id="roomBarChart" width="500" height="300"></canvas>
+    {Object.keys(roomRankings).map(building => (
+    <div key={building} style={{ maxWidth: '100%', margin: '10px', padding: '20px' }}> 
+    </div>
+  ))}
+  </div>
       </div>
-
-
 
       {modalVisible && (
         <div className="modal" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'fixed', top: '0', left: '0', width: '100%', height: '100%', backgroundColor: 'rgba(0,0,0,0.5)', zIndex: '9999' }}>
