@@ -166,13 +166,13 @@ function Analytics() {
   }, []);
 
   // Event handler for changing the from date
-  // const handleFromDateRoomMonitoringChange = (event) => {
-  //   const selectedDate = event.target.value;
-  //   setSelectedFromDateRoomMonitoring(selectedDate);
-  //   const selectedDateObject = new Date(selectedDate);
-  //   const dayPrefix = dayWord[selectedDateObject.getDay()].slice(0, 3);
-  //   setDayNamePrefix(dayPrefix);
-  // };
+   const handleFromDateRoomMonitoringChange = (event) => {
+     const selectedDate = event.target.value;
+     setSelectedFromDateRoomMonitoring(selectedDate);
+     const selectedDateObject = new Date(selectedDate);
+     const dayPrefix = dayWord[selectedDateObject.getDay()].slice(0, 3);
+     setDayNamePrefix(dayPrefix);
+   };
   const calculateRoomUsageByBuilding = (selectedPeriod) => {
     const roomUsageByBuilding = {};
 
@@ -821,10 +821,10 @@ function Analytics() {
       </div>
 
       <div style={{ backgroundColor: '#D3D3D3', height: '1px', marginTop: '20px' }}></div>
-      {/* <div>
-        <label htmlFor="fromDate">From Date:</label>
+       <div>
+        <label htmlFor="fromDate">Select Specific Date:</label>
         <input type="date" id="fromDate" value={selectedFromDateRoomMonitoring} onChange={handleFromDateRoomMonitoringChange} />
-      </div> */}
+      </div> 
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div style={{ flexBasis: '33%', margin: '10px', borderRadius: '8px', padding: '20px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
           <h3 style={{ fontFamily: 'Bold' }}>Nantes Building</h3>
