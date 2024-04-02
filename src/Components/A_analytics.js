@@ -121,7 +121,6 @@ function Analytics() {
   };
 
   useEffect(() => {
-    console.log('ChangesInHistory');
     const historyRef = ref(dataBase, 'history');
     onValue(historyRef, (snapshot) => {
       if (snapshot.exists()) {
@@ -162,17 +161,8 @@ function Analytics() {
     const formattedDate = `${year}-${month}-${day}`;
     setDayNamePrefix(dayWord[today.getDay()].slice(0, 3));
     setSelectedFromDateRoomMonitoring(formattedDate);
-    setSelectedFromDate(formattedDate);
   }, []);
 
-  // Event handler for changing the from date
-   const handleFromDateRoomMonitoringChange = (event) => {
-     const selectedDate = event.target.value;
-     setSelectedFromDateRoomMonitoring(selectedDate);
-     const selectedDateObject = new Date(selectedDate);
-     const dayPrefix = dayWord[selectedDateObject.getDay()].slice(0, 3);
-     setDayNamePrefix(dayPrefix);
-   };
   const calculateRoomUsageByBuilding = (selectedPeriod) => {
     const roomUsageByBuilding = {};
 
@@ -327,7 +317,6 @@ function Analytics() {
 
 
   useEffect(() => {
-    console.log("filterDateChangeDate")
     const filteredDate = async () => {
       try {
         const database = getDatabase(app);
@@ -502,13 +491,17 @@ function Analytics() {
 
 
   const handleFromDateChange = (event) => {
+    setSelectedFromDate(event.target.value);
+  };
+
+  const handleFromDateRoomMonitoringChange = (event) => {
     const selectedDate = event.target.value;
     setSelectedFromDateRoomMonitoring(selectedDate);
     const selectedDateObject = new Date(selectedDate);
     const dayPrefix = dayWord[selectedDateObject.getDay()].slice(0, 3);
     setDayNamePrefix(dayPrefix);
-    setSelectedFromDate(event.target.value);
   };
+
 
   const handleToDateChange = (event) => {
     setSelectedToDate(event.target.value);
@@ -816,15 +809,14 @@ function Analytics() {
 
 
       <div style={{ marginBottom: '20px', marginTop: '20px', padding: '20px', borderRadius: '8px', background: '#fff' }}>
-        <h3 style={{ fontFamily: 'Bold', color: '#333' }}>Room Schedules Monitoring</h3>
-
-      </div>
+      <h3 style={{ fontFamily: 'Bold', color: '#333' }}>Room Schedules Monitoring</h3>
+         </div>
 
       <div style={{ backgroundColor: '#D3D3D3', height: '1px', marginTop: '20px' }}></div>
-       <div>
-        <label htmlFor="fromDate">Select Specific Date:</label>
+      <div>
+        <label htmlFor="fromDate">From Date:</label>
         <input type="date" id="fromDate" value={selectedFromDateRoomMonitoring} onChange={handleFromDateRoomMonitoringChange} />
-      </div> 
+      </div>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <div style={{ flexBasis: '33%', margin: '10px', borderRadius: '8px', padding: '20px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
           <h3 style={{ fontFamily: 'Bold' }}>Nantes Building</h3>
