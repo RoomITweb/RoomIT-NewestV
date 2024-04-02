@@ -284,29 +284,7 @@ function AddSchedule() {
       <h2>Add Schedule</h2>
       <h2>{yearHeader}</h2>
       <form>
-        <button
-          type="button"
-          onClick={handleAddSchedule}
-          className="btn btn-success"
-          style={{
-            width: '400px',
-            fontFamily: 'Semibold',
-            marginLeft: '0px',
-            marginTop: '-1%',
-            marginBottom: '15%',
-            backgroundColor: 'green',
-            color: 'white',
-            border: 'none',
-            padding: '12px',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            width: '400px',
-            align: 'center',
-
-          }}
-        >
-          ADD SCHEDULE
-        </button>
+      
         <div>
           <h2>Upload Excel File</h2>
           <input type="file" accept=".xlsx, .xls" onChange={handleFileUpload} />
