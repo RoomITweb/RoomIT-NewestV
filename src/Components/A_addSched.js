@@ -280,19 +280,27 @@ function AddSchedule() {
   };
 
   return (
-    <div className="add-schedule-container" style={{ color: '#3d3d3d', padding: '10px', marginTop: '0px', marginBottom: '50px' }}>
-      <h2>Add Schedule</h2>
-      <h2>{yearHeader}</h2>
-      <form>
-      
-        <div>
-          <h2>Upload Excel File</h2>
-          <input type="file" accept=".xlsx, .xls" onChange={handleFileUpload} />
+    <div className="container">
+    <h2 className="my-4">Add Schedule</h2>
+    <div className="row">
+      <div className="col-md-6 offset-md-3">
+        {/* File Upload Section */}
+        <div className="card p-4">
+          <h4 className="mb-3">Upload Excel File</h4>
+          <input
+            type="file"
+            className="form-control mb-3"
+            accept=".xlsx, .xls"
+            onChange={handleFileUpload}
+          />
+          <small className="text-muted">
+            Please select an Excel file (.xlsx or .xls) containing schedule data.
+          </small>
         </div>
-        <span style={{ textDecoration: 'line-through' }}></span>{' '}
-      </form>
+      </div>
     </div>
-  );
+  </div>
+);
 }
 
 export default AddSchedule;
