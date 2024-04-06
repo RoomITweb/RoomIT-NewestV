@@ -365,11 +365,6 @@ function FacultySchedule() {
       set(ref(database, `users/${userUid}/attendingClass`), null);
 
       if (subject !== null && subject !== undefined) {
-
-        // const attendtime = new Date(); // Use either new Date() or Date.now()
-        // console.log('attendtime',attendDate)
-        // attendtime.setHours(attendDate); // Use setHours() to set the hour
-        
         const timeEnded = Date.now();
         const historyRef = ref(database, `history`);
 
@@ -378,14 +373,20 @@ function FacultySchedule() {
 
           if (historySnapshot.exists()) {
             const historyData = historySnapshot.val();
-
-            await set(historyRef, {
-              ...historyData,
-              [timeEnded.toString()]: {
-                ...selectedSubject,
-                timeEnded: timeEnded 
-              },
-            });
+         
+            const entriesWithId = Object.values(historyData).filter(entry => entry.Id === subject.Id && entry.attendTime === subject.attendTime);
+            console.log("entriesWithId", entriesWithId);
+            if (entriesWithId.length>0) {
+          
+            } else {
+              await set(historyRef, {
+                ...historyData,
+                [timeEnded.toString()]: {
+                  ...selectedSubject,
+                  timeEnded: timeEnded 
+                },
+              });
+            }
           } else {
             await set(historyRef, {
               [timeEnded.toString()]: {
@@ -636,7 +637,7 @@ function FacultySchedule() {
                   Close Scanner
                 </button>
               )}
-              {(
+              {attendingClass && (
                 <button className="bg-blue-600 text-white px-4 py-2" onClick={handleAttendClass}>
                   Attend Class
                 </button>

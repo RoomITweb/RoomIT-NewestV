@@ -29,3 +29,18 @@ td {
 .schedule-item p {
   margin: 0;
 }
+
+.table-container-mine {
+  max-height: 800px; /* Adjust max height as needed */
+  overflow-y: auto;
+  border: 1px solid #ccc; /* Add border if desired */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+}
+
+.table-fixed-header thead {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff; /* Change to your preferred header background color */
+  z-index: 1;
+}

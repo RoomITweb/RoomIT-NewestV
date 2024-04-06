@@ -40,7 +40,7 @@ const handleLogin = async (e) => {
       const snapshot = await get(userRef);
       const userData = snapshot.val();
       console.log('usersrole',userData)
-      if (userData ) {
+      if (userData && userData.role === loginAs) {
         // Kung ang user role ay tumutugma sa piniling role, ituloy ang login.
         switch (loginAs) {
           case 'admin':

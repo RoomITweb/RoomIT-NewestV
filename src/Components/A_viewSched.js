@@ -417,7 +417,7 @@ function ViewSchedule() {
                 </div>
               </div>
             </div>
-
+            <h2>Schedule Matrix</h2>
             <div className="">
               <ViewScheduleMatrix schedules={filteredSchedules} />
             </div>

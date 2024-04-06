@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-
+import './MatrixSchedule.css';
 function ViewScheduleMatrix({ schedules }) {
   // Function to expand abbreviated days
   const expandDays = (abbreviatedDay) => {
@@ -50,9 +50,8 @@ return;
   };
 
   return (
-    <div>
-      <h2>Schedule Matrix</h2>
-      <table className="table table-bordered" style={{ width: '100%' }}>
+    <div  className="table-container-mine">
+      <table className='table-fixed-header' style={{ width: '100%' }}>
         <thead>
           <tr>
             <th style={{ width: '10%' }}>Time </th>
